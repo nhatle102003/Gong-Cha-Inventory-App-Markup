@@ -1,0 +1,10 @@
+#ignore everything
+*
+*/
+
+#unignore what we want to track
+
+!.gitignore
+!node_modules 
+!backend
+!frontend
