@@ -5,6 +5,6 @@
 #unignore what we want to track
 
 !.gitignore
-!node_modules 
+!backend/node_modules 
 !backend
 !frontend
