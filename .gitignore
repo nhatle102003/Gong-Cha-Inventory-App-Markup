@@ -1,10 +1,1 @@
-#ignore everything
-*
-*/
-
-#unignore what we want to track
-
-!.gitignore
-!backend/node_modules 
-!Inventory/backend
-!Inventory/frontend
+backend/node_modules
