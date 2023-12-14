@@ -6,5 +6,5 @@
 
 !.gitignore
 !backend/node_modules 
-!backend
-!frontend
+!Inventory/backend
+!Inventory/frontend
