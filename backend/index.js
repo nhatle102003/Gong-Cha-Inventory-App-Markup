@@ -3,10 +3,24 @@ import {PORT, mongoDBURL} from "./config.js"
 import mongoose from "mongoose";
 import { Inventory } from "./models/inventoryModels.js";
 import itemsRoute from "./routes/itemsRoute.js";
+import cors from 'cors';
+
+const origin = 'http://localhost:5555/'
 const app = express();
 
 //Middleway to parsing request body
 app.use(express.json())
+
+
+//middleway to handle CORs policy 
+//only custom origins
+app.use(
+    cors({
+        origin: origin,
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type']
+    })
+)
 
 app.get("/", (request, reponse) => {
     console.log(request)
