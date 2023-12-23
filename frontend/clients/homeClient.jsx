@@ -21,11 +21,58 @@ const homeClient = () => {
 
   return (
     <div className='p-4'> 
-        <div className ='flex justify-between items-center'></div> 
-        <Link to = '/items/create'>
-            <MdOutlineAddBox className = 'text-sky-800 text-4x1' />
-        </Link>
+        <div className ='flex justify-between items-center'>
+          <h1 className = 'text-3x1 my-8 '>Gong Cha Inventory List </h1>
+          <Link to = '/items/create'>
+              <MdOutlineAddBox className = 'text-sky-800 text-4x1' />
+          </Link>
+        </div> 
+
+        <table className = " w-full border-seperate border-spacing-2"> 
+            <thead>
+              <tr>
+                  <th className = 'border border-slate-600 rounded-md'>No.</th>
+                  <th className = 'border border-slate-600 rounded-md'>Item</th>
+                  <th className = 'border border-slate-600 rounded-md max-md:hidden'>Quantity</th>
+                  <th className = 'border border-slate-600 rounded-md max-md:hidden'>Metric</th>
+                  <th className = 'border border-slate-600 rounded-md'>Options</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((item, index) => (
+                <tr key = {item.id} className='h-8'>
+                  <td className='border border-slate-700 rounded-md text-center'>
+                    {index+1}
+                  </td>
+                  <td className='border border-slate-700 rounded-md text-center'>
+                    {item.name}
+                  </td>
+                  <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
+                    {item.quantity}
+                  </td>
+                  <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
+                    {item.metrics}
+                  </td>
+                  <td className='border border-slate-700 rounded-md text-center'>
+                    <div className='flex justify-center gap-x-4'>
+                      <Link to={`/items/show/${item._id}`}>
+                        <BsInfoCircle className = 'text-2x1 text-green-800'/>
+                      </Link>
+                      <Link to={`/items/edit/${item._id}`}>
+                        <AiOutlineEdit className = 'text-2x1 text-yellow-600'/>
+                      </Link>
+                      <Link to={`/items/delete/${item._id}`}>
+                        <MdOutlineDelete className = 'text-2x1 text-red-600'/>
+                      </Link>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+        </table>
     </div>
+    
   )
 }
 
