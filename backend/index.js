@@ -5,7 +5,7 @@ import { Inventory } from "./models/inventoryModels.js";
 import itemsRoute from "./routes/itemsRoute.js";
 import cors from 'cors';
 
-const origin = 'http://localhost:5555/'
+const origin = 'http://127.0.0.1:5173'
 const app = express();
 
 //Middleway to parsing request body
