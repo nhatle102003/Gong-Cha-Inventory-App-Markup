@@ -23,4 +23,4 @@ const inventorySchema = mongoose.Schema(
 
 )
 
-export const Inventory = mongoose.model("Star Jelly", inventorySchema)
+export const Inventory = mongoose.model('Inventory', inventorySchema)
