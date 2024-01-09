@@ -28,9 +28,9 @@ const homeClient = () => {
    
 
     <div className='p-4'>
-        <div class = "container-fluid flex">
-          <div class="MuiBox-root css-130f8nx">
-            <ul class="navbar-nav flex">
+        <div className = "container-fluid flex">
+          <div className ="MuiBox-root css-130f8nx">
+            <ul className ="navbar-nav flex">
               <img src="./images/NewLogoG.png" alt-height='10'/>
             </ul>
           </div>
@@ -41,35 +41,16 @@ const homeClient = () => {
               <MdOutlineAddBox className = 'text-sky-800 text-4x1' />
           </Link>
         </div> 
-        {load ? ( <Spinner/> ) : (
-          <table className = " w-full border-seperate border-spacing-2"> 
-          <thead>
-            <tr>
-                <th className = 'border border-slate-600 rounded-md'>No.</th>
-                <th className = 'border border-slate-600 rounded-md'>Item</th>
-                <th className = 'border border-slate-600 rounded-md max-md:hidden'>Quantity</th>
-                <th className = 'border border-slate-600 rounded-md max-md:hidden'>Metric</th>
-                <th className = 'border border-slate-600 rounded-md'>Options</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((item, index) => (
-              <tr key = {item.id} className='h-8'>
-                <td className='border border-slate-700 rounded-md text-center'>
-                  {index+1}
-                </td>
-                <td className='border border-slate-700 rounded-md text-center'>
-                  {item.name}
-                </td>
-                <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-                  {item.quantity}
-                </td>
-                <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-                  {item.metrics}
-                </td>
-                <td className='border border-slate-700 rounded-md text-center'>
-                  <div className='flex justify-center gap-x-4'>
+        {load ? (<Spinner/>) : (
+          <div className = 'flex justify-between'>
+            <div className = "grid grid-flow-col justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+              {items.map((item) => (
+                <div className = "px-4 py-3 w-72">
+                  <span class="text-black-400 mr-3 uppercase text-xs">{item.name}</span>
+                <div class="flex items-center">
+                <p class="text-lg  text-black cursor-auto my-3">{item.quantity} {item.metrics}</p>
+                </div>
+                <div className='flex justify-left gap-x-4'>
                     <Link to={`/items/show/${item._id}`}>
                       <BsInfoCircle className = 'text-2x1 text-green-800'/>
                     </Link>
@@ -80,13 +61,11 @@ const homeClient = () => {
                       <MdOutlineDelete className = 'text-2x1 text-red-600'/>
                     </Link>
                   </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-      </table>
-      )}
-        
+              </div>
+              ))}
+            </div>
+          </div>
+        )}
     </div>
     
   )
