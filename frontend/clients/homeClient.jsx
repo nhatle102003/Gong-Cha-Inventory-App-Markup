@@ -25,7 +25,16 @@ const homeClient = () => {
   }, [])
 
   return (
-    <div className='p-4'> 
+   
+
+    <div className='p-4'>
+        <div class = "container-fluid flex">
+          <div class="MuiBox-root css-130f8nx">
+            <ul class="navbar-nav flex">
+              <img src="./images/NewLogoG.png" alt-height='10'/>
+            </ul>
+          </div>
+        </div> 
         <div className ='flex justify-between items-center'>
           <h1 className = 'text-3x1 my-8 '>Gong Cha Inventory List </h1>
           <Link to = '/items/create'>
