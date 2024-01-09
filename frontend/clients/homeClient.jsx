@@ -43,7 +43,7 @@ const homeClient = () => {
         </div> 
         {load ? (<Spinner/>) : (
           <div className = 'flex justify-between'>
-            <div className = "w-fit mx-auto grid grid-flow-col justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <div className = "w-fit mx-auto grid lg:grid-flow-col sm:grid-flow-row justify-items-center justify-center  gap-y-20 gap-x-14 mt-10 mb-5">
               {items.map((item) => (
                 <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
                   <img src = "./images/holder.jpg"></img>
