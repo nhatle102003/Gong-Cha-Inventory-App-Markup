@@ -14,8 +14,13 @@ const inventorySchema = mongoose.Schema(
         metrics: {
             type: String,
             required: true
+        },
+        image: {
+            type: String
         }
+        
         //TODO - figured out the criteria for inventory
+        //need to figure out do we really need to upload image
     },
     {
         timestamps: true
