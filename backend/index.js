@@ -30,6 +30,8 @@ app.get("/", (request, reponse) => {
 //middele way to use all route method
 app.use("/items", itemsRoute)
 
+app.use('/frontend/uploads', express.static('uploads'))
+
 mongoose
     .connect(mongoDBURL)
     .then(()=>{
