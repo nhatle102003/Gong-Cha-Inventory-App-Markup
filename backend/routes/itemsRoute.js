@@ -1,20 +1,44 @@
 import  express  from "express";
+import multer from 'multer'
+import fs from 'fs-extra'
 import { Inventory } from "../models/inventoryModels.js";
 
+const tempDir = '../frontend/uploads'
 const router = express.Router();
+fs.ensureDirSync(tempDir)
+
+const storage = multer.diskStorage({
+    
+    destination: function (req, file, cb) {
+      cb(null, "/uploads")
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+  })
+const upload = multer({storage: storage})
 
 //Route for Saving a new item
-router.post('/', async (request, reponse) => {
+router.post('/', upload.single('itemImage') ,async (request, reponse) => {
+    console.log(request.file)
     try{
+        let imageLink 
         if(!request.body.name || !request.body.quantity || !request.body.metrics){
             return reponse.status(400).send({
                 message: "Send all required fields"
             })
         }
+        
+        if(request.file){
+            imageLink = request.file.path
+        }else{
+            imageLink = ""
+        }
         const newItem = {
             name: request.body.name,
             quantity: request.body.quantity,
-            metrics: request.body.metrics
+            metrics: request.body.metrics,
+            image: imageLink
         }
 
         const item = await Inventory.create(newItem);
