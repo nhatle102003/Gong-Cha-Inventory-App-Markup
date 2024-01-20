@@ -46,7 +46,8 @@ const homeClient = () => {
             <div className = "w-fit mx-auto grid lg:grid-flow-col sm:grid-flow-row justify-items-center justify-center  gap-y-20 gap-x-14 mt-10 mb-5">
               {items.map((item) => (
                 <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-                  <img src = "./images/holder.jpg"></img>
+                  {item.image == "" ? (<img src = "./images/holder.jpg"></img>) : 
+                  (<img src = {item.image}></img>)}
                   <div className = "px-4 py-3 w-72">
                       <span class="text-black-400 mr-3 uppercase text-xs">{item.name}</span>
                     <div class="flex items-center">
