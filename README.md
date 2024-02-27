@@ -11,7 +11,7 @@ Author: Tran Minh Nhat Le
 ### Dependencies 
 
 * This app is build with React and NodeJs. It is reccomended that you install NodeJs on your system prior to testing/ running this program. 
-* [text](https://nodejs.org/en/download)
+* [NodeJs Download Guide for Windows ](https://nodejs.org/en/download)
 
 ### Executing program
 * After you clone this project to the directory of your choice, you would need to do the following steps (note that the following operations are Windows based):
